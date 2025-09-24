@@ -4,7 +4,10 @@
       <div class="col-lg-8">
         <!-- Header -->
         <div class="text-center mb-4">
-          <h1 class="display-4 text-primary">待辦事項管理</h1>
+          <h1 class="display-4 text-primary">
+            <img src="/cat_bat.png" alt="Cat Bat" class="me-2" style="width: 48px; height: 48px;">
+            待辦事項管理
+          </h1>
           <p class="lead text-muted">管理您的日常任務</p>
         </div>
 
