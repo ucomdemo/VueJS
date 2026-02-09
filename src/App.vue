@@ -40,6 +40,14 @@
                 <i class="bi bi-shield-check"></i> 版權宣告
               </router-link>
             </li>
+            <li class="nav-item">
+              <router-link 
+                class="nav-link text-warning" 
+                to="/nes"
+              >
+                <i class="bi bi-joystick"></i> NES 主題
+              </router-link>
+            </li>
           </ul>
         </div>
       </div>
