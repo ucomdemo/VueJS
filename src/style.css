@@ -1,3 +1,6 @@
+/* Import Google Material Icons */
+@import url('https://fonts.googleapis.com/css2?family=Material+Icons');
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -19,36 +22,35 @@ body {
   background-color: #f8f9fa;
 }
 
-/* Custom styles for better integration with Bootstrap */
+/* Custom styles */
 .cursor-pointer {
   cursor: pointer;
 }
 
-/* Override some Vite default styles that conflict with Bootstrap */
-button {
-  background: none;
-  border: none;
-  font-family: inherit;
-}
-
-/* Ensure proper spacing */
+/* Container */
 .container {
-  padding-top: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
-/* Custom todo item hover effect */
-.list-group-item:hover {
-  background-color: #f8f9fa;
+/* Utility classes for layout */
+.mt-4 { margin-top: 2rem; }
+.mb-4 { margin-bottom: 2rem; }
+.py-3 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.text-center { text-align: center; }
+
+/* Custom todo item styles */
+.todo-item {
   transition: background-color 0.2s ease;
 }
 
-/* Custom checkbox styling */
-.form-check-input:checked {
-  background-color: #28a745;
-  border-color: #28a745;
+.todo-item:hover {
+  background-color: #f8f9fa;
 }
 
 /* Animation for completed todos */
 .text-decoration-line-through {
+  text-decoration: line-through;
   transition: all 0.3s ease;
 }
