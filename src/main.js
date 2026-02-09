@@ -9,9 +9,6 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 // Import Bootstrap Icons
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
-// Import NES.css
-import 'nes.css/css/nes.min.css'
-
 import './style.css'
 
 const app = createApp(App)

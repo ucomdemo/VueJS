@@ -23,7 +23,7 @@
                   <li><strong>應用名稱：</strong>待辦事項管理系統</li>
                   <li><strong>版本：</strong>1.0.0</li>
                   <li><strong>開發框架：</strong>Vue.js 3</li>
-                  <li><strong>UI 框架：</strong>Bootstrap 5 / NES.css</li>
+                  <li><strong>UI 框架：</strong>Bootstrap 5</li>
                   <li><strong>狀態管理：</strong>Pinia</li>
                 </ul>
               </div>
@@ -58,7 +58,6 @@
                 <li>完整的待辦事項 CRUD 功能</li>
                 <li>即時狀態管理與資料持久化</li>
                 <li>現代化的 Web 技術堆疊</li>
-                <li>雙主題支援：Bootstrap 5 與懷舊 NES 風格</li>
               </ul>
             </div>
             
