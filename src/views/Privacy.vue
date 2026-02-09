@@ -3,9 +3,10 @@
     <div class="row justify-content-center">
       <div class="col-lg-8">
         <div class="card">
-          <div class="card-header bg-primary text-white">
-            <h2 class="card-title mb-0">
-              <i class="bi bi-shield-check"></i> 版權宣告
+          <div class="card-header">
+            <h2 class="card-title mb-0" style="display: flex; align-items: center; gap: 8px;">
+              <span class="material-icons">shield</span>
+              <span>版權宣告</span>
             </h2>
           </div>
           <div class="card-body">
@@ -18,17 +19,23 @@
             
             <div class="row">
               <div class="col-md-6">
-                <h5><i class="bi bi-info-circle text-info"></i> 應用資訊</h5>
+                <h5 style="display: flex; align-items: center; gap: 8px;">
+                  <span class="material-icons" style="color: #2196f3;">info</span>
+                  <span>應用資訊</span>
+                </h5>
                 <ul class="list-unstyled">
                   <li><strong>應用名稱：</strong>待辦事項管理系統</li>
                   <li><strong>版本：</strong>1.0.0</li>
                   <li><strong>開發框架：</strong>Vue.js 3</li>
-                  <li><strong>UI 框架：</strong>Bootstrap 5</li>
+                  <li><strong>UI 框架：</strong>Material Web</li>
                   <li><strong>狀態管理：</strong>Pinia</li>
                 </ul>
               </div>
               <div class="col-md-6">
-                <h5><i class="bi bi-calendar text-warning"></i> 開發資訊</h5>
+                <h5 style="display: flex; align-items: center; gap: 8px;">
+                  <span class="material-icons" style="color: #ff9800;">event</span>
+                  <span>開發資訊</span>
+                </h5>
                 <ul class="list-unstyled">
                   <li><strong>開發年份：</strong>2024</li>
                   <li><strong>最後更新：</strong>{{ currentDate }}</li>
@@ -41,7 +48,10 @@
             <hr>
             
             <div class="text-center">
-              <h5><i class="bi bi-c-circle text-danger"></i> 版權聲明</h5>
+              <h5 style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <span class="material-icons" style="color: #f44336;">copyright</span>
+                <span>版權聲明</span>
+              </h5>
               <p class="text-muted">
                 © {{ currentYear }} 待辦事項管理系統。保留所有權利。
               </p>
@@ -50,8 +60,11 @@
               </p>
             </div>
             
-            <div class="alert alert-info">
-              <h6><i class="bi bi-lightbulb"></i> 功能特色</h6>
+            <div class="alert">
+              <h6 style="display: flex; align-items: center; gap: 8px;">
+                <span class="material-icons" style="font-size: 20px;">lightbulb</span>
+                <span>功能特色</span>
+              </h6>
               <ul class="mb-0">
                 <li>響應式設計，支援桌面和行動裝置</li>
                 <li>直觀的用戶介面與操作體驗</li>
@@ -62,8 +75,11 @@
             </div>
             
             <div class="text-center mt-4">
-              <router-link to="/" class="btn btn-primary">
-                <i class="bi bi-house"></i> 回到首頁
+              <router-link to="/" style="text-decoration: none;">
+                <md-filled-button>
+                  <span class="material-icons" slot="icon">home</span>
+                  回到首頁
+                </md-filled-button>
               </router-link>
             </div>
           </div>
@@ -81,11 +97,27 @@ const currentDate = computed(() => new Date().toLocaleString('zh-TW'))
 </script>
 
 <style scoped>
-.card-header {
-  border-bottom: none;
+hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 1.5rem 0;
 }
 
-.alert {
-  border-left: 4px solid #17a2b8;
+h3 {
+  margin-bottom: 0.5rem;
+}
+
+h5 {
+  margin-bottom: 1rem;
+  color: var(--md-sys-color-on-surface);
+}
+
+.small {
+  font-size: 0.875rem;
+}
+
+md-filled-button {
+  --md-filled-button-container-color: var(--md-sys-color-primary);
+  --md-filled-button-label-text-color: var(--md-sys-color-on-primary);
 }
 </style>

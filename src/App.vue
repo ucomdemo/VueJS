@@ -1,46 +1,32 @@
 <template>
   <div id="app">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="top-app-bar">
       <div class="container">
-        <router-link class="navbar-brand" to="/">
-          <i class="bi bi-check2-square"></i>
-          待辦事項管理
-        </router-link>
-        
-        <button 
-          class="navbar-toggler" 
-          type="button" 
-          data-bs-toggle="collapse" 
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav" 
-          aria-expanded="false" 
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <router-link 
-                class="nav-link" 
-                to="/" 
-                :class="{ active: $route.name === 'Home' }"
-              >
-                <i class="bi bi-house"></i> 首頁
-              </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link 
-                class="nav-link" 
-                to="/privacy"
-                :class="{ active: $route.name === 'Privacy' }"
-              >
-                <i class="bi bi-shield-check"></i> 版權宣告
-              </router-link>
-            </li>
-          </ul>
+        <div class="nav-content">
+          <router-link class="nav-title" to="/">
+            <span class="material-icons">task_alt</span>
+            <span>待辦事項管理</span>
+          </router-link>
+          
+          <div class="nav-actions">
+            <router-link 
+              to="/" 
+              class="nav-link"
+              :class="{ active: $route.name === 'Home' }"
+            >
+              <span class="material-icons">home</span>
+              <span>首頁</span>
+            </router-link>
+            <router-link 
+              to="/privacy"
+              class="nav-link"
+              :class="{ active: $route.name === 'Privacy' }"
+            >
+              <span class="material-icons">shield</span>
+              <span>版權宣告</span>
+            </router-link>
+          </div>
         </div>
       </div>
     </nav>
@@ -51,9 +37,9 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-light text-center text-muted py-3 mt-5">
+    <footer class="footer">
       <div class="container">
-        <p class="mb-0">© {{ currentYear }} 待辦事項管理系統 - 使用 Vue.js 與 Bootstrap 建立</p>
+        <p class="mb-0">© {{ currentYear }} 待辦事項管理系統 - 使用 Vue.js 與 Material Web 建立</p>
       </div>
     </footer>
   </div>
@@ -66,12 +52,64 @@ const currentYear = computed(() => new Date().getFullYear())
 </script>
 
 <style scoped>
-.navbar-brand {
-  font-weight: bold;
+.top-app-bar {
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  min-height: 64px;
+}
+
+.nav-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--md-sys-color-on-primary);
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.nav-title:hover {
+  opacity: 0.9;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  color: var(--md-sys-color-on-primary);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .nav-link.active {
-  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 500;
+}
+
+.nav-link .material-icons {
+  font-size: 20px;
 }
 
 #app {
@@ -82,5 +120,17 @@ const currentYear = computed(() => new Date().getFullYear())
 
 main {
   flex: 1;
+}
+
+.footer {
+  background-color: #f5f5f5;
+  text-align: center;
+  color: #6c757d;
+  padding: 24px 0;
+  margin-top: 3rem;
+}
+
+.footer p {
+  margin: 0;
 }
 </style>

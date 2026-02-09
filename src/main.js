@@ -3,11 +3,15 @@ import { createPinia } from 'pinia'
 import router from './router'
 import App from './App.vue'
 
-// Import Bootstrap CSS and JS
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'
-// Import Bootstrap Icons
-import 'bootstrap-icons/font/bootstrap-icons.css'
+// Import Material Web Components
+import '@material/web/button/filled-button.js'
+import '@material/web/button/outlined-button.js'
+import '@material/web/button/text-button.js'
+import '@material/web/checkbox/checkbox.js'
+import '@material/web/textfield/filled-text-field.js'
+import '@material/web/iconbutton/icon-button.js'
+import '@material/web/list/list.js'
+import '@material/web/list/list-item.js'
 
 import './style.css'
 

@@ -15,16 +15,16 @@
         <div class="card mb-4">
           <div class="card-body">
             <form @submit.prevent="addNewTodo" class="d-flex gap-2">
-              <input 
+              <md-filled-text-field 
                 v-model="newTodoText" 
-                type="text" 
-                class="form-control" 
-                placeholder="輸入新的待辦事項..." 
+                label="輸入新的待辦事項..."
+                class="flex-grow-1"
                 required
-              >
-              <button type="submit" class="btn btn-primary">
-                <i class="bi bi-plus-circle"></i> 新增
-              </button>
+              ></md-filled-text-field>
+              <md-filled-button type="submit">
+                <span class="material-icons" slot="icon">add_circle</span>
+                新增
+              </md-filled-button>
             </form>
           </div>
         </div>
@@ -43,7 +43,7 @@
             <div class="card text-center bg-light">
               <div class="card-body">
                 <h5 class="card-title">待完成</h5>
-                <h2 class="text-warning">{{ todoStore.pendingTodos.length }}</h2>
+                <h2 style="color: #f57c00;">{{ todoStore.pendingTodos.length }}</h2>
               </div>
             </div>
           </div>
@@ -51,7 +51,7 @@
             <div class="card text-center bg-light">
               <div class="card-body">
                 <h5 class="card-title">已完成</h5>
-                <h2 class="text-success">{{ todoStore.completedTodos.length }}</h2>
+                <h2 style="color: #4caf50;">{{ todoStore.completedTodos.length }}</h2>
               </div>
             </div>
           </div>
@@ -60,28 +60,28 @@
         <!-- Todo List -->
         <div class="card">
           <div class="card-header">
-            <h5 class="mb-0">
-              <i class="bi bi-list-check"></i> 待辦事項清單
+            <h5 class="mb-0" style="display: flex; align-items: center; gap: 8px;">
+              <span class="material-icons">checklist</span>
+              <span>待辦事項清單</span>
             </h5>
           </div>
           <div class="card-body">
             <div v-if="todoStore.todos.length === 0" class="text-center text-muted py-4">
-              <i class="bi bi-clipboard2-x display-1"></i>
+              <span class="material-icons" style="font-size: 64px;">assignment_late</span>
               <p class="mt-2">尚無待辦事項</p>
             </div>
-            <div v-else class="list-group list-group-flush">
+            <div v-else>
               <div 
                 v-for="todo in todoStore.todos" 
                 :key="todo.id" 
-                class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom"
+                class="list-item"
               >
                 <div class="d-flex align-items-center flex-grow-1">
-                  <input 
-                    type="checkbox" 
+                  <md-checkbox
                     :checked="todo.completed" 
                     @change="todoStore.toggleTodo(todo.id)"
-                    class="form-check-input me-3"
-                  >
+                    style="margin-right: 16px;"
+                  ></md-checkbox>
                   <span 
                     v-if="editingId !== todo.id"
                     :class="{ 'text-decoration-line-through text-muted': todo.completed }"
@@ -90,31 +90,30 @@
                   >
                     {{ todo.text }}
                   </span>
-                  <input 
+                  <md-filled-text-field
                     v-else
                     v-model="editingText"
                     @blur="saveEdit(todo.id)"
                     @keyup.enter="saveEdit(todo.id)"
                     @keyup.escape="cancelEdit"
-                    class="form-control flex-grow-1"
+                    class="flex-grow-1"
                     :ref="el => editInput = el"
-                  >
+                  ></md-filled-text-field>
                 </div>
-                <div class="btn-group btn-group-sm">
-                  <button 
+                <div class="btn-group">
+                  <md-outlined-button 
                     v-if="editingId !== todo.id"
                     @click="startEditing(todo.id, todo.text)"
-                    class="btn btn-outline-secondary"
                     :disabled="todo.completed"
                   >
-                    <i class="bi bi-pencil"></i>
-                  </button>
-                  <button 
+                    <span class="material-icons" slot="icon">edit</span>
+                  </md-outlined-button>
+                  <md-outlined-button 
                     @click="todoStore.deleteTodo(todo.id)"
-                    class="btn btn-outline-danger"
+                    style="--md-outlined-button-container-color: #ffebee; --md-outlined-button-label-text-color: #c62828;"
                   >
-                    <i class="bi bi-trash"></i>
-                  </button>
+                    <span class="material-icons" slot="icon">delete</span>
+                  </md-outlined-button>
                 </div>
               </div>
             </div>
@@ -167,12 +166,28 @@ const cancelEdit = () => {
   cursor: pointer;
 }
 
-.list-group-item:hover {
-  background-color: #f8f9fa;
+.display-4 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.2;
 }
 
-.form-check-input:checked {
-  background-color: #28a745;
-  border-color: #28a745;
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+h5 {
+  margin: 0;
+  color: inherit;
+}
+
+md-filled-text-field {
+  width: 100%;
+}
+
+md-filled-button, md-outlined-button {
+  --md-filled-button-container-color: var(--md-sys-color-primary);
+  --md-filled-button-label-text-color: var(--md-sys-color-on-primary);
 }
 </style>
